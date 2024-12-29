@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+#!SPDX-FileCopyrightText: 2024 Kosuke Abe
+#!SPDX-License-Identifier: BSD-3-Clause
+
+import sys
+
+def calculate_weekday(year, month, day, is_leap_year):
+    month_numbers = {
+        1: 1 if not is_leap_year else 0,
+        2: 4 if not is_leap_year else 3,
+        3: 4, 
+        4: 0, 
+        5: 2, 
+        6: 5,
+        7: 0, 
+        8: 3, 
+        9: 6, 
+        10: 1, 
+        11: 4, 
+        12: 6
+    }
+    century_number = 6 if year >= 2000 else 0
+    total = (day + year % 100 + (year % 100) // 4 + month_numbers[month] + century_number) % 7
+    return ["土曜日", "日曜日", "月曜日", "火曜日", "水曜日", "木曜日", "金曜日"][total]
+
+if __name__ == "__main__":
+    try:
+        if not sys.stdin.isatty():
+            year, month, day, leap = sys.stdin.read().strip().split('/')
+            is_leap = leap.lower() == "yes"
+            weekday = calculate_weekday(int(year), int(month), int(day), is_leap)
+            print(f"{year}/{month}/{day}は{weekday}です。")
+        else:
+            print("標準入力からデータを提供してください (例: echo 2005/3/31/no | ./mojuro_calculation)", file=sys.stderr)
+            sys.exit(1)
+    except Exception as e:
+        print(f"エラー: {e}", file=sys.stderr)
+        sys.exit(1)
+
+
