@@ -1,5 +1,5 @@
 # モジュロ演算
-
+[![test](https://github.com/03310317/robosys2024_1/actions/workflows/test.yml/badge.svg)](https://github.com/03310317/robosys2024_1/actions/workflows/test.yml)
 
 ## プロジェクトタイトル
 
@@ -41,4 +41,17 @@ $ echo 2005/3/31/yes | ./mojuro_calculation
 ## 実行方法の例
 
 ```
-$
+$echo 2005/3/31/no | ./mojuro_calculation
+2005/3/31は木曜日です。
+```
+
+##  必要なソフトウェア
+- Python
+ - テスト済みバージョン: 3.7~3.10
+
+## テスト環境
+- 対応OS: Ubuntu 22.04
+
+## ライセンス
+- このソフトウェアパッケージは、3条項BSDライセンスの下、再頒布および使用   を許可されています。
+- © 2024 Kosuke Abe

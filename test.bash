@@ -20,6 +20,8 @@ echo "${out}" | grep -Eq "2000/1/1は土曜日です。" || ng "$LINENO"
 out=$(echo -e "a\nb\nc\n" | ./mojuro_calculation 2>&1)
 [ "$?" -ne 0 ] || ng "$LINENO"
 
+
+
 # プログラム中にエラーが発生していないことを確認
 echo "${out}" | grep -Eq "Traceback|SyntaxError|EOFError" && ng "$LINENO"
 
