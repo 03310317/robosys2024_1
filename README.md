@@ -35,7 +35,7 @@ $ chmod +x mojuro_calculation
 
 - 実行
 ```
-$ echo 2005/3/31/yes | ./mojuro_calculation
+$ echo 2005/3/31/no | ./mojuro_calculation
 ```
 
 ## 実行方法の例
